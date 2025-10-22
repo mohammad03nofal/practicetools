@@ -22,6 +22,7 @@ public class MyData {
 	String HomePage="https://practicesoftwaretesting.com/";
 	String SignUpPage="https://practicesoftwaretesting.com/auth/register";
 	String LoginPage="https://practicesoftwaretesting.com/auth/login";
+	String forgotPassword="https://practicesoftwaretesting.com/auth/forgot-password";
 	String CustomerFirstName;
 	String CustomerLastName;
 	String DateOfBirth="2003-12-31";
@@ -31,20 +32,21 @@ public class MyData {
 	String CustomerCountryInDataBase;
 	String PostCode;
 	String loginnam;
-	String pass="P@asswor1D";
+	String pass="P@kareem0967";
+	String newpassword="Pa@kar2003";
 	String StateInDatabase;
 	String cityInDatabase;
 	Random rand=new Random();
-	int RandomNumberForTheEmail1=rand.nextInt(4658);
-	int RandomNumberForTheEmail2=rand.nextInt(4652);
-	int RandomNumberForTheEmail=RandomNumberForTheEmail1*RandomNumberForTheEmail2-6000;
+	//int RandomNumberForTheEmail1=rand.nextInt(4658);
+	//int RandomNumberForTheEmail2=rand.nextInt(4652);
+	//int RandomNumberForTheEmail=RandomNumberForTheEmail1*RandomNumberForTheEmail2-6000;
 	
 	
 	
 	@BeforeTest
 	public void SetUp() throws SQLException
 	{
-		driver.navigate().to(HomePage);
+		driver.get(HomePage);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		driver.manage().window().maximize();
 		conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/classicmodels","root","0000");
@@ -71,7 +73,7 @@ public class MyData {
 		{
 			CustomerFirstName=rs.getString("contactFirstName").toString().trim();
 			CustomerLastName=rs.getString("contactLastName").toString().trim();
-			Email=CustomerFirstName+CustomerLastName+RandomNumberForTheEmail+"@gmail.com";
+			Email=CustomerFirstName+CustomerLastName+"@gmail.com";
 			PhoneNumberInDatabase=rs.getString("phone");
 			AddLine1=rs.getString("addressLine1");
 			PostCode=rs.getString("Postalcode");
@@ -87,7 +89,7 @@ public class MyData {
 	@Test(priority=2)
 	public void UpdateRecord() throws SQLException
 	{
-		String query="update customers set contactFirstName='Hala' where customerNumber=507";
+		String query="update customers set contactFirstName='Kareem' where customerNumber=507";
 		stmt=conn.createStatement();
 		int updatedrow=stmt.executeUpdate(query);
 	}

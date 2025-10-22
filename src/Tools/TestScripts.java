@@ -2,6 +2,8 @@ package Tools;
 
 import static org.testng.Assert.assertEquals;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -10,7 +12,7 @@ import org.testng.annotations.Test;
 
 public class TestScripts extends MyData{
 	
-	@Test(priority=5,enabled=true)
+	@Test(priority=5,enabled=false)
 	public void SignUpTest() throws InterruptedException
 	{
 		//Elements
@@ -47,8 +49,25 @@ public class TestScripts extends MyData{
 		RegisterButton.click();	
 	}
 	
+	
+	@Test(priority=7,enabled=false)
+	public void setNewPassword() throws InterruptedException
+	{
+		String profilepage="https://practicesoftwaretesting.com/account/profile";
+		driver.navigate().to(profilepage);
+		WebElement currentpass=driver.findElement(By.id("current-password"));
+		WebElement newpass=driver.findElement(By.id("new-password"));
+		WebElement confirmNewPassword=driver.findElement(By.id("new-password-confirm"));
+		WebElement changepassButton=driver.findElement(By.xpath("//button[@data-test='change-password-submit']"));
+		currentpass.sendKeys(pass);
+		newpass.sendKeys(newpassword);
+		confirmNewPassword.sendKeys(newpassword);
+		Thread.sleep(2000);
+		changepassButton.click();
+	}
+	
 	@Test(priority=6)
-	public void LoginTest() throws InterruptedException
+	public void LoginTestAfterChangePassword() throws InterruptedException
 	{
 		driver.navigate().to(LoginPage);
 		WebElement email_login=driver.findElement(By.id("email"));
@@ -56,15 +75,103 @@ public class TestScripts extends MyData{
 		WebElement LoginButton=driver.findElement(By.xpath("//input[@value='Login']"));
 		
 		email_login.sendKeys(Email);
-		pass_login.sendKeys(pass);
+		pass_login.sendKeys(newpassword);
 		Thread.sleep(2000);
 		LoginButton.click();
 		
 		Thread.sleep(3000);
-		boolean actualmessage=driver.getPageSource().contains("My account");
+		String expResult="My account";
+		boolean actualmessage=driver.getPageSource().contains("account");
 		Assert.assertEquals(actualmessage, true);
 		
 	}
+	
+	@Test(priority=8)
+	public void AddHandTools() throws InterruptedException
+	{
+		
+		String handtoolspage="https://practicesoftwaretesting.com/category/hand-tools";
+		driver.navigate().to(HomePage);
+		driver.navigate().to(handtoolspage);
+		
+		// page one tools
+		for(int i=1;i<=1;i++)
+		{
+		 List <WebElement> Handtools=driver.findElements(By.className("card-title"));
+		 int randomtool=rand.nextInt(Handtools.size());
+		 Handtools.get(randomtool).click();
+		 Thread.sleep(4000);
+		 
+		boolean outofstockmesssage =driver.getPageSource().contains("Out of stock");
+		
+		if(!outofstockmesssage)
+		{
+			WebElement AddToCartButtonp3 =driver.findElement(By.cssSelector(".btn-success.btn"));
+			AddToCartButtonp3.click();
+			Thread.sleep(3000);
+		}
+		
+			
+		driver.navigate().back();
+		}
+		 
+		// page two tools
+		for(int i=1;i<=1;i++)
+		{
+		
+		 WebElement pagetwobutton=driver.findElement(By.xpath("//a[@aria-label='Page-2']"));
+		 pagetwobutton.click();
+		 Thread.sleep(3000);
+		 List <WebElement> Handtools=driver.findElements(By.className("card-title"));
+		 int randomtool=rand.nextInt(Handtools.size());
+		 Handtools.get(randomtool).click();
+		 Thread.sleep(4000);
+		 
+		boolean outofstockmesssage =driver.getPageSource().contains("Out of stock");
+		
+		if(!outofstockmesssage)
+		{
+			WebElement AddToCartButtonp2 =driver.findElement(By.cssSelector(".btn-success.btn"));
+			AddToCartButtonp2.click();
+			Thread.sleep(3000);
+		}
+		
+			
+		driver.navigate().back();
+		}
+		
+		//page three of hand tools
+		for(int i=1;i<=1;i++)
+		{
+		
+		 WebElement pageThreebutton=driver.findElement(By.xpath("//a[@aria-label='Page-3']"));
+		 pageThreebutton.click();
+		 Thread.sleep(3000);
+		 List <WebElement> Handtools=driver.findElements(By.className("card-title"));
+		 int randomtool=rand.nextInt(Handtools.size());
+		 Handtools.get(randomtool).click();
+		 Thread.sleep(4000);
+		 
+		boolean outofstockmesssage =driver.getPageSource().contains("Out of stock");
+		
+		if(!outofstockmesssage)
+		{
+			WebElement AddToCartButtonp3=driver.findElement(By.cssSelector(".btn-success.btn"));
+			AddToCartButtonp3.click();
+			Thread.sleep(3000);
+		}
+		
+			
+		driver.navigate().back();
+		}	
+		
+	}
+	
+	
+	
+	
+	
+	
 	
 
 }

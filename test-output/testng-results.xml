@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
+<testng-results ignored="2" total="8" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-10-20T22:42:55 EET" name="Default suite" finished-at="2025-10-20T22:43:07 EET" duration-ms="12424">
+  <suite started-at="2025-10-22T22:11:51 EET" name="Default suite" finished-at="2025-10-22T22:12:30 EET" duration-ms="39528">
     <groups>
     </groups>
-    <test started-at="2025-10-20T22:42:55 EET" name="Default test" finished-at="2025-10-20T22:43:07 EET" duration-ms="12424">
+    <test started-at="2025-10-22T22:11:51 EET" name="Default test" finished-at="2025-10-22T22:12:30 EET" duration-ms="39528">
       <class name="Tools.TestScripts">
-        <test-method is-config="true" signature="SetUp()[pri:0, instance:Tools.TestScripts@753432a2]" started-at="2025-10-20T22:42:55 EET" name="SetUp" finished-at="2025-10-20T22:42:57 EET" duration-ms="2653" status="PASS">
+        <test-method is-config="true" signature="SetUp()[pri:0, instance:Tools.TestScripts@44e3a2b2]" started-at="2025-10-22T22:11:51 EET" name="SetUp" finished-at="2025-10-22T22:11:53 EET" duration-ms="2374" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SetUp -->
-        <test-method signature="AddRecord()[pri:1, instance:Tools.TestScripts@753432a2]" started-at="2025-10-20T22:42:57 EET" name="AddRecord" finished-at="2025-10-20T22:42:57 EET" duration-ms="18" status="PASS">
+        <test-method signature="AddRecord()[pri:1, instance:Tools.TestScripts@44e3a2b2]" started-at="2025-10-22T22:11:53 EET" name="AddRecord" finished-at="2025-10-22T22:11:53 EET" duration-ms="33" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AddRecord -->
-        <test-method signature="UpdateRecord()[pri:2, instance:Tools.TestScripts@753432a2]" started-at="2025-10-20T22:42:57 EET" name="UpdateRecord" finished-at="2025-10-20T22:42:57 EET" duration-ms="4" status="PASS">
+        <test-method signature="UpdateRecord()[pri:2, instance:Tools.TestScripts@44e3a2b2]" started-at="2025-10-22T22:11:53 EET" name="UpdateRecord" finished-at="2025-10-22T22:11:53 EET" duration-ms="13" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- UpdateRecord -->
-        <test-method signature="ReadData()[pri:3, instance:Tools.TestScripts@753432a2]" started-at="2025-10-20T22:42:57 EET" name="ReadData" finished-at="2025-10-20T22:42:57 EET" duration-ms="37" status="PASS">
+        <test-method signature="ReadData()[pri:3, instance:Tools.TestScripts@44e3a2b2]" started-at="2025-10-22T22:11:53 EET" name="ReadData" finished-at="2025-10-22T22:11:53 EET" duration-ms="101" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ReadData -->
-        <test-method signature="DeleteRecord()[pri:4, instance:Tools.TestScripts@753432a2]" started-at="2025-10-20T22:42:57 EET" name="DeleteRecord" finished-at="2025-10-20T22:42:57 EET" duration-ms="6" status="PASS">
+        <test-method signature="DeleteRecord()[pri:4, instance:Tools.TestScripts@44e3a2b2]" started-at="2025-10-22T22:11:53 EET" name="DeleteRecord" finished-at="2025-10-22T22:11:53 EET" duration-ms="9" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- DeleteRecord -->
-        <test-method signature="SignUpTest()[pri:5, instance:Tools.TestScripts@753432a2]" started-at="2025-10-20T22:42:57 EET" name="SignUpTest" finished-at="2025-10-20T22:43:02 EET" duration-ms="5014" status="PASS">
+        <test-method signature="LoginTestAfterChangePassword()[pri:6, instance:Tools.TestScripts@44e3a2b2]" started-at="2025-10-22T22:11:53 EET" name="LoginTestAfterChangePassword" finished-at="2025-10-22T22:11:59 EET" duration-ms="5952" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SignUpTest -->
-        <test-method signature="LoginTest()[pri:6, instance:Tools.TestScripts@753432a2]" started-at="2025-10-20T22:43:02 EET" name="LoginTest" finished-at="2025-10-20T22:43:07 EET" duration-ms="4648" status="PASS">
+        </test-method> <!-- LoginTestAfterChangePassword -->
+        <test-method signature="AddHandTools()[pri:8, instance:Tools.TestScripts@44e3a2b2]" started-at="2025-10-22T22:11:59 EET" name="AddHandTools" finished-at="2025-10-22T22:12:30 EET" duration-ms="30953" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- LoginTest -->
+        </test-method> <!-- AddHandTools -->
       </class> <!-- Tools.TestScripts -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

@@ -5,8 +5,8 @@
     <classes>
       <class name="Tools.TestScripts">
         <methods>
-          <include name="SignUpTest"/>
           <include name="SetUp"/>
+          <include name="LoginTestAfterChangePassword"/>
         </methods>
       </class> <!-- Tools.TestScripts -->
     </classes>
