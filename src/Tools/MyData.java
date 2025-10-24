@@ -23,23 +23,27 @@ public class MyData {
 	String SignUpPage="https://practicesoftwaretesting.com/auth/register";
 	String LoginPage="https://practicesoftwaretesting.com/auth/login";
 	String forgotPassword="https://practicesoftwaretesting.com/auth/forgot-password";
+	String handtoolsCattegory="https://practicesoftwaretesting.com/category/hand-tools";
+	String powertoolscategory="https://practicesoftwaretesting.com/category/power-tools";
+	String othertoolscategory="https://practicesoftwaretesting.com/category/other";
+	String RentalsCategory="https://practicesoftwaretesting.com/rentals";
 	String CustomerFirstName;
 	String CustomerLastName;
-	String DateOfBirth="2003-12-31";
+	String DateOfBirth="2003-11-1";
 	String Email;
 	String PhoneNumberInDatabase;
 	String AddLine1;
 	String CustomerCountryInDataBase;
 	String PostCode;
 	String loginnam;
-	String pass="P@kareem0967";
-	String newpassword="Pa@kar2003";
+	String pass="Mah11@1962mo";
+	String newpassword="Ma@h10116969";
 	String StateInDatabase;
 	String cityInDatabase;
 	Random rand=new Random();
-	//int RandomNumberForTheEmail1=rand.nextInt(4658);
-	//int RandomNumberForTheEmail2=rand.nextInt(4652);
-	//int RandomNumberForTheEmail=RandomNumberForTheEmail1*RandomNumberForTheEmail2-6000;
+	int RandomNumberForTheEmail1=rand.nextInt(462);
+	int RandomNumberForTheEmail2=rand.nextInt(423);
+	int RandomNumberForTheEmail=RandomNumberForTheEmail1*RandomNumberForTheEmail2-600;
 	
 	
 	
@@ -89,7 +93,7 @@ public class MyData {
 	@Test(priority=2)
 	public void UpdateRecord() throws SQLException
 	{
-		String query="update customers set contactFirstName='Kareem' where customerNumber=507";
+		String query="update customers set contactFirstName='Kamal' , contactLastName='Nofal'  where customerNumber=507";
 		stmt=conn.createStatement();
 		int updatedrow=stmt.executeUpdate(query);
 	}

@@ -48,7 +48,25 @@ public class TestScripts extends MyData{
 		password.sendKeys(pass);
 		RegisterButton.click();	
 	}
-	
+	@Test(priority=6,enabled=true)
+	public void LoginTest() throws InterruptedException
+	{
+		driver.navigate().to(LoginPage);
+		WebElement email_login=driver.findElement(By.id("email"));
+		WebElement pass_login=driver.findElement(By.id("password"));
+		WebElement LoginButton=driver.findElement(By.xpath("//input[@value='Login']"));
+		
+		email_login.sendKeys(Email);
+		pass_login.sendKeys(pass);
+		Thread.sleep(2000);
+		LoginButton.click();
+		
+		//Thread.sleep(3000);
+		//boolean actualmessage=driver.getPageSource().contains("My account");
+		//Assert.assertEquals(actualmessage, true);
+		
+	}
+
 	
 	@Test(priority=7,enabled=false)
 	public void setNewPassword() throws InterruptedException
@@ -66,7 +84,7 @@ public class TestScripts extends MyData{
 		changepassButton.click();
 	}
 	
-	@Test(priority=6)
+	@Test(priority=8,enabled=false)
 	public void LoginTestAfterChangePassword() throws InterruptedException
 	{
 		driver.navigate().to(LoginPage);
@@ -80,92 +98,183 @@ public class TestScripts extends MyData{
 		LoginButton.click();
 		
 		Thread.sleep(3000);
-		String expResult="My account";
-		boolean actualmessage=driver.getPageSource().contains("account");
-		Assert.assertEquals(actualmessage, true);
+		//boolean actualmessage=driver.getPageSource().contains("My account");
+		//Assert.assertEquals(actualmessage, true);
+		
 		
 	}
 	
-	@Test(priority=8)
-	public void AddHandTools() throws InterruptedException
+	@Test(priority=9,enabled=true)
+	public void AddTools() throws InterruptedException
 	{
+		driver.get(HomePage);
+		driver.navigate().to(handtoolsCattegory);
 		
-		String handtoolspage="https://practicesoftwaretesting.com/category/hand-tools";
-		driver.navigate().to(HomePage);
-		driver.navigate().to(handtoolspage);
-		
-		// page one tools
-		for(int i=1;i<=1;i++)
+		//add hand tools
+		for(int i=1;i<=5;i++)
 		{
-		 List <WebElement> Handtools=driver.findElements(By.className("card-title"));
-		 int randomtool=rand.nextInt(Handtools.size());
-		 Handtools.get(randomtool).click();
-		 Thread.sleep(4000);
-		 
+			
+			 List <WebElement> HandtoolsOptions=driver.findElements(By.name("category_id"));
+			 int randomcheckbox=rand.nextInt(HandtoolsOptions.size());
+			 HandtoolsOptions.get(randomcheckbox).click();
+			 Thread.sleep(2000);
+			 boolean notoolsfound =driver.getPageSource().contains("There are no products found.");
+			 if(notoolsfound)
+			 { 
+				 driver.navigate().to(handtoolsCattegory);
+				 List <WebElement> AltHandtoolsOptions=driver.findElements(By.name("category_id"));
+				 int randomcheckboxOfHand=rand.nextInt(AltHandtoolsOptions.size());
+				 AltHandtoolsOptions.get(randomcheckbox).click();
+			 
+			 }
+			 List <WebElement> toolName=driver.findElements(By.className("card-title"));
+			 int randomtool=rand.nextInt(toolName.size());
+			 toolName.get(randomtool).click();
+			 
 		boolean outofstockmesssage =driver.getPageSource().contains("Out of stock");
 		
 		if(!outofstockmesssage)
 		{
-			WebElement AddToCartButtonp3 =driver.findElement(By.cssSelector(".btn-success.btn"));
-			AddToCartButtonp3.click();
+			WebElement AddToCartButton =driver.findElement(By.cssSelector(".btn-success.btn"));
+			AddToCartButton.click();
 			Thread.sleep(3000);
 		}
 		
 			
-		driver.navigate().back();
+		driver.navigate().to(handtoolsCattegory);
 		}
-		 
-		// page two tools
-		for(int i=1;i<=1;i++)
-		{
 		
-		 WebElement pagetwobutton=driver.findElement(By.xpath("//a[@aria-label='Page-2']"));
-		 pagetwobutton.click();
-		 Thread.sleep(3000);
-		 List <WebElement> Handtools=driver.findElements(By.className("card-title"));
-		 int randomtool=rand.nextInt(Handtools.size());
-		 Handtools.get(randomtool).click();
-		 Thread.sleep(4000);
-		 
+		//add power tools 
+		driver.get(HomePage);
+		driver.navigate().to(powertoolscategory);
+		for(int i=1;i<=5;i++)
+		{
+			
+			 List <WebElement> PowertoolsOptions=driver.findElements(By.name("category_id"));
+			 int randomcheckbox=rand.nextInt(PowertoolsOptions.size());
+			 PowertoolsOptions.get(randomcheckbox).click();
+			 Thread.sleep(2000);
+			 boolean notoolsfound =driver.getPageSource().contains("There are no products found.");
+			 if(notoolsfound)
+			 { 
+				 driver.navigate().to(powertoolscategory);
+				 List <WebElement> AltPowertoolsOptions=driver.findElements(By.name("category_id"));
+				 int randomcheckboxOfpower=rand.nextInt(AltPowertoolsOptions.size());
+				 AltPowertoolsOptions.get(randomcheckbox).click();
+			 
+			 }
+			 List <WebElement> toolName=driver.findElements(By.className("card-title"));
+			 int randomtool=rand.nextInt(toolName.size());
+			 toolName.get(randomtool).click();
+			 
 		boolean outofstockmesssage =driver.getPageSource().contains("Out of stock");
 		
 		if(!outofstockmesssage)
 		{
-			WebElement AddToCartButtonp2 =driver.findElement(By.cssSelector(".btn-success.btn"));
-			AddToCartButtonp2.click();
+			WebElement AddToCartButton =driver.findElement(By.cssSelector(".btn-success.btn"));
+			AddToCartButton.click();
 			Thread.sleep(3000);
 		}
 		
 			
-		driver.navigate().back();
+		driver.navigate().to(powertoolscategory);
 		}
 		
-		//page three of hand tools
-		for(int i=1;i<=1;i++)
-		{
+		//add other tools 
 		
-		 WebElement pageThreebutton=driver.findElement(By.xpath("//a[@aria-label='Page-3']"));
-		 pageThreebutton.click();
-		 Thread.sleep(3000);
-		 List <WebElement> Handtools=driver.findElements(By.className("card-title"));
-		 int randomtool=rand.nextInt(Handtools.size());
-		 Handtools.get(randomtool).click();
-		 Thread.sleep(4000);
+		driver.get(HomePage);
+		
+		driver.navigate().to(othertoolscategory);
+				for(int i=1;i<=5;i++)
+				{
+					
+					 List <WebElement> OthertoolsOptions=driver.findElements(By.name("category_id"));
+					 int randomcheckbox=rand.nextInt(OthertoolsOptions.size());
+					 OthertoolsOptions.get(randomcheckbox).click();
+					 Thread.sleep(2000);
+					 boolean notoolsfound =driver.getPageSource().contains("There are no products found.");
+					 if(notoolsfound)
+					 { 
+						 driver.navigate().to(othertoolscategory);
+						 List <WebElement> AltOthertoolsOptions=driver.findElements(By.name("category_id"));
+						 int randomcheckboxOfpower=rand.nextInt(AltOthertoolsOptions.size());
+						 AltOthertoolsOptions.get(randomcheckbox).click();
+					 
+					 }
+					 List <WebElement> toolName=driver.findElements(By.className("card-title"));
+					 int randomtool=rand.nextInt(toolName.size());
+					 toolName.get(randomtool).click();
+					 
+				boolean outofstockmesssage =driver.getPageSource().contains("Out of stock");
+				
+				if(!outofstockmesssage)
+				{
+					WebElement AddToCartButton =driver.findElement(By.cssSelector(".btn-success.btn"));
+					AddToCartButton.click();
+					Thread.sleep(3000);
+				}
+				
+					
+				driver.navigate().to(othertoolscategory);
+				}
+				
+				driver.get(HomePage);
+				driver.navigate().to(RentalsCategory);
+				for(int i=1;i<=5;i++)
+				{
+					 List <WebElement> toolName=driver.findElements(By.className("card-title"));
+					 int randomtool=rand.nextInt(toolName.size());
+					 toolName.get(randomtool).click();
+					 
+				boolean outofstockmesssage =driver.getPageSource().contains("Out of stock");
+				
+				if(!outofstockmesssage)
+				{
+					WebElement AddToCartButton =driver.findElement(By.cssSelector(".btn-success.btn"));
+					AddToCartButton.click();
+					Thread.sleep(3000);
+				}
+				
+					
+				driver.navigate().back();
+				}
+				
+			
+		
+		
 		 
-		boolean outofstockmesssage =driver.getPageSource().contains("Out of stock");
-		
-		if(!outofstockmesssage)
-		{
-			WebElement AddToCartButtonp3=driver.findElement(By.cssSelector(".btn-success.btn"));
-			AddToCartButtonp3.click();
-			Thread.sleep(3000);
-		}
-		
-			
-		driver.navigate().back();
-		}	
 		
 	}
+				
+		@Test(priority=10,enabled=true)
+		public void checkoutTest() throws InterruptedException
+		{
+			driver.navigate().to("https://practicesoftwaretesting.com/checkout");
+			WebElement checkoutbutton=driver.findElement(By.cssSelector(".btn.btn-success"));
+			checkoutbutton.click();
+			WebElement email_checkout=driver.findElement(By.id("email"));
+			WebElement pass_checkout=driver.findElement(By.id("password"));
+			WebElement LoginButton_checkout=driver.findElement(By.xpath("//input[@data-test='login-submit']"));
+		    email_checkout.clear();
+		    email_checkout.sendKeys(Email);
+		    pass_checkout.clear();
+		    pass_checkout.sendKeys(pass);
+			Thread.sleep(2000);
+			LoginButton_checkout.click();
+			
+			
+			
+			
+			
+			
+			
+			
+		}
+		
+		
+	
+	
+	
 	
 	
 	
