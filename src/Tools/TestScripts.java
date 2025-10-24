@@ -107,7 +107,7 @@ public class TestScripts extends MyData{
 	@Test(priority=9,enabled=true)
 	public void AddTools() throws InterruptedException
 	{
-		driver.get(HomePage);
+		
 		driver.navigate().to(handtoolsCattegory);
 		
 		//add hand tools
@@ -145,7 +145,7 @@ public class TestScripts extends MyData{
 		}
 		
 		//add power tools 
-		driver.get(HomePage);
+	
 		driver.navigate().to(powertoolscategory);
 		for(int i=1;i<=5;i++)
 		{
@@ -182,7 +182,7 @@ public class TestScripts extends MyData{
 		
 		//add other tools 
 		
-		driver.get(HomePage);
+		
 		
 		driver.navigate().to(othertoolscategory);
 				for(int i=1;i<=5;i++)
@@ -218,7 +218,7 @@ public class TestScripts extends MyData{
 				driver.navigate().to(othertoolscategory);
 				}
 				
-				driver.get(HomePage);
+				
 				driver.navigate().to(RentalsCategory);
 				for(int i=1;i<=5;i++)
 				{
